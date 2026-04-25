@@ -106,13 +106,12 @@ app.post("/api/sos", async (req, res) => {
   res.json({ success: true, alertId: `SOS-${Date.now()}`, timestamp: new Date().toISOString() });
 });
 
-app.get("/api/health", (req, res) => {
-  res.json({
-    status: "ok",
-    geminiKeySet: !!process.env.GEMINI_API_KEY,
-  });
+app.get("/", (req, res) => {
+  res.send("🚀 AI Emergency Response Backend is running!");
 });
-
+app.get("/api/health", (req, res) => {
+  res.json({ status: "OK", message: "Backend is running" });
+});
 function getFallbackResponse(situation) {
   const s = situation.toLowerCase();
   if (s.includes("fire") || s.includes("smoke")) {
