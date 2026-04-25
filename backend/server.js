@@ -145,10 +145,11 @@ function getFallbackResponse(situation) {
 app.listen(PORT, () => {
   console.log(`\n🚨 Server running → http://localhost:${PORT}`);
   console.log(`   Health check  → http://localhost:${PORT}/api/health\n`);
+
   if (process.env.GEMINI_API_KEY) {
-    console.log("✅ Gemini API key found — ready!");
+    console.log("✅ GEMINI_API_KEY loaded successfully");
   } else {
-    console.log("❌ GEMINI_API_KEY not found in .env file!");
-    console.log("   Open backend/.env and add: GEMINI_API_KEY=your_key_here");
+    console.log("❌ GEMINI_API_KEY is missing!");
+    console.log("👉 Add it in Render → Environment Variables");
   }
 });
