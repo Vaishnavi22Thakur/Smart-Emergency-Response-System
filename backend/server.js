@@ -141,7 +141,7 @@ function getFallbackResponse(situation) {
     severity: "medium", callEmergencyServices: true, emergencyNumber: "112",
   };
 }
-
+console.log("ENV CHECK:", process.env.GEMINI_API_KEY);
 app.listen(PORT, () => {
   console.log(`\n🚨 Server running → http://localhost:${PORT}`);
   console.log(`   Health check  → http://localhost:${PORT}/api/health\n`);
