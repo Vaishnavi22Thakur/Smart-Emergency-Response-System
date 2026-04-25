@@ -7,7 +7,7 @@ An AI-powered web application that provides real-time emergency guidance using i
 ## 🌐 Live Demo
 
 * **Frontend (Vercel):** https://
-smart-emergency-response-system-nine.vercel.app
+smart-emergency-response-system-cu8ao5h3d.vercel.app
 * **Backend (Render):** https://smart-emergency-response-system-5o7u.onrender.com
 
 ---
