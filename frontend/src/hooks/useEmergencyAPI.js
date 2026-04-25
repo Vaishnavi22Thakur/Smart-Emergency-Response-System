@@ -1,15 +1,6 @@
-/**
- * hooks/useEmergencyAPI.js
- *
- * Custom React hook for all API calls to the backend.
- * Keeps API logic out of components — components just call
- * `submitEmergency(text)` and get back structured data.
- *
- * Usage:
- *   const { response, isLoading, error, isOffline, submitEmergency, conversationHistory, reset } = useEmergencyAPI();
- */
-
 import { useState, useCallback } from "react";
+
+const API_URL = process.env.REACT_APP_API_URL;
 
 function useEmergencyAPI() {
   const [response, setResponse] = useState(null);
@@ -26,7 +17,7 @@ function useEmergencyAPI() {
     setIsOffline(false);
 
     try {
-      const res = await fetch("/api/emergency", {
+      const res = await fetch(`${API_URL}/api/emergency`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ situation, conversationHistory }),
@@ -38,15 +29,16 @@ function useEmergencyAPI() {
         setResponse(result.data);
         setConversationHistory(result.conversationHistory);
       } else {
-        // Partial failure: offline fallback data available
         if (result.data) {
           setResponse(result.data);
           setIsOffline(true);
         }
         setError(result.error || "Something went wrong.");
       }
-    } catch {
-      setError("Cannot reach server. Is the backend running on port 5000?");
+    } catch (err) {
+      console.error("API ERROR:", err);
+      setError("Cannot reach backend server.");
+      setIsOffline(true);
     } finally {
       setIsLoading(false);
     }
