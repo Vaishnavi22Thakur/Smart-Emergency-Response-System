@@ -1,0 +1,177 @@
+/* ResponseCard.css */
+
+.response-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fadeInUp 0.4s ease;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Severity Badge ──────────────────────────────────────────────────────────── */
+.severity-badge {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  border: 1px solid;
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.call-now-link {
+  background: var(--color-red);
+  color: white;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: background 0.2s;
+}
+
+.call-now-link:hover {
+  background: #ff5555;
+}
+
+/* ── Base Card ────────────────────────────────────────────────────────────────── */
+.response-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.card-icon {
+  font-size: 1.3rem;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  flex: 1;
+}
+
+.card-badge {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 3px 10px;
+  border-radius: 50px;
+}
+
+/* ── Immediate Action Card ─────────────────────────────────────────────────── */
+.card-immediate {
+  border-color: rgba(255, 59, 59, 0.35);
+  background: linear-gradient(135deg, #1a1014 0%, var(--bg-card) 60%);
+  box-shadow: var(--shadow-glow-red);
+}
+
+.card-immediate .card-title { color: var(--color-red); }
+
+.card-immediate .card-badge {
+  background: var(--color-red-dim);
+  color: var(--color-red);
+  border: 1px solid rgba(255, 59, 59, 0.3);
+}
+
+.immediate-text {
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+/* ── Steps Card ─────────────────────────────────────────────────────────────── */
+.card-steps {
+  border-color: rgba(41, 182, 246, 0.25);
+}
+
+.card-steps .card-title { color: var(--color-blue); }
+
+.steps-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.step-number {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(41, 182, 246, 0.15);
+  border: 1px solid rgba(41, 182, 246, 0.3);
+  color: var(--color-blue);
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.step-text {
+  font-size: 0.93rem;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+/* ── Do Not Card ──────────────────────────────────────────────────────────────── */
+.card-donot {
+  border-color: rgba(255, 179, 0, 0.25);
+  background: linear-gradient(135deg, #14120a 0%, var(--bg-card) 60%);
+}
+
+.card-donot .card-title { color: var(--color-amber); }
+
+.donot-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.donot-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.93rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.donot-x {
+  color: var(--color-amber);
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}

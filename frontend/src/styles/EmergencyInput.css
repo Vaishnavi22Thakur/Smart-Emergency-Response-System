@@ -1,0 +1,160 @@
+/* EmergencyInput.css */
+
+.emergency-input-container {
+  background: var(--bg-card);
+  border: 1px solid var(--border-bright);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: var(--shadow-card);
+}
+
+.emergency-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.input-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.emergency-textarea {
+  flex: 1;
+  background: var(--bg-secondary);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 12px 14px;
+  resize: none;
+  transition: border-color 0.2s ease;
+  line-height: 1.5;
+}
+
+.emergency-textarea::placeholder {
+  color: var(--text-dim);
+}
+
+.emergency-textarea:focus {
+  outline: none;
+  border-color: var(--color-red);
+}
+
+.emergency-textarea.listening {
+  border-color: var(--color-green);
+  animation: listening-pulse 1s ease-in-out infinite;
+}
+
+@keyframes listening-pulse {
+  0%, 100% { border-color: var(--color-green); }
+  50% { border-color: rgba(0, 230, 118, 0.4); }
+}
+
+.input-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Mic Button */
+.btn-mic {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-bright);
+  background: var(--bg-secondary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-mic:hover:not(:disabled) {
+  border-color: var(--color-green);
+  transform: scale(1.05);
+}
+
+.btn-mic--active {
+  background: rgba(0, 230, 118, 0.1);
+  border-color: var(--color-green);
+  animation: mic-pulse 1s ease-in-out infinite;
+}
+
+@keyframes mic-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(0, 230, 118, 0); }
+}
+
+/* Submit Button */
+.btn-submit {
+  height: 48px;
+  padding: 0 20px;
+  background: var(--color-red);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 90px;
+}
+
+.btn-submit:hover:not(:disabled) {
+  background: #ff5555;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-glow-red);
+}
+
+.btn-submit:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.voice-not-supported {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-dim);
+  font-size: 1rem;
+  cursor: not-allowed;
+}
+
+.voice-fallback-notice {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .input-row { flex-direction: column; }
+  .input-actions { flex-direction: row; }
+  .btn-submit { flex: 1; }
+}

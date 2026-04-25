@@ -1,0 +1,264 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   App.css — Global styles for AI Emergency Response System
+   Design: High-contrast, utilitarian, command-center aesthetic
+   Fonts: "Rajdhani" (display) + "IBM Plex Sans" (body)
+───────────────────────────────────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+/* ── CSS Variables (Design Tokens) ─────────────────────────────────────────── */
+:root {
+  --bg-primary: #0a0c10;
+  --bg-secondary: #111318;
+  --bg-card: #161a22;
+  --bg-card-hover: #1c2130;
+
+  --color-red: #ff3b3b;
+  --color-red-dim: rgba(255, 59, 59, 0.12);
+  --color-amber: #ffb300;
+  --color-amber-dim: rgba(255, 179, 0, 0.10);
+  --color-green: #00e676;
+  --color-blue: #29b6f6;
+
+  --text-primary: #e8eaf0;
+  --text-secondary: #8892a4;
+  --text-dim: #555f70;
+
+  --border: #1e2535;
+  --border-bright: #2a3345;
+
+  --font-display: 'Rajdhani', sans-serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-glow-red: 0 0 20px rgba(255, 59, 59, 0.15);
+}
+
+/* ── Reset & Base ───────────────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  font-size: 15px;
+}
+
+/* ── App Layout ─────────────────────────────────────────────────────────────── */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────────── */
+.app-header {
+  padding: 20px 0 16px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-icon {
+  font-size: 2rem;
+  animation: pulse-icon 2s ease-in-out infinite;
+}
+
+@keyframes pulse-icon {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+.logo h1 {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.logo p {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ── Main Content ───────────────────────────────────────────────────────────── */
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 32px;
+}
+
+/* ── Banners ────────────────────────────────────────────────────────────────── */
+.banner {
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.banner-warning {
+  background: var(--color-amber-dim);
+  border: 1px solid rgba(255, 179, 0, 0.3);
+  color: var(--color-amber);
+}
+
+.banner-error {
+  background: var(--color-red-dim);
+  border: 1px solid rgba(255, 59, 59, 0.3);
+  color: var(--color-red);
+}
+
+/* ── Transcript Box ─────────────────────────────────────────────────────────── */
+.transcript-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+}
+
+.transcript-label {
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.transcript-text {
+  color: var(--color-blue);
+  font-style: italic;
+}
+
+/* ── Loading State ──────────────────────────────────────────────────────────── */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 40px 0;
+  color: var(--text-secondary);
+}
+
+.loading-spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: var(--color-red);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Welcome State ──────────────────────────────────────────────────────────── */
+.welcome-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 32px 0;
+}
+
+.welcome-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.quick-chip {
+  background: var(--bg-card);
+  border: 1px solid var(--border-bright);
+  color: var(--text-primary);
+  border-radius: 50px;
+  padding: 8px 18px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quick-chip:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--color-red);
+  color: var(--color-red);
+  transform: translateY(-1px);
+}
+
+.welcome-hint {
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+
+/* ── Reset Button ───────────────────────────────────────────────────────────── */
+.btn-reset {
+  align-self: center;
+  background: transparent;
+  border: 1px solid var(--border-bright);
+  color: var(--text-secondary);
+  border-radius: var(--radius-md);
+  padding: 10px 24px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 8px;
+}
+
+.btn-reset:hover {
+  border-color: var(--text-secondary);
+  color: var(--text-primary);
+}
+
+/* ── Footer ─────────────────────────────────────────────────────────────────── */
+.app-footer {
+  text-align: center;
+  padding: 16px 0 24px;
+  border-top: 1px solid var(--border);
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+
+.app-footer strong {
+  color: var(--color-red);
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .logo h1 { font-size: 1.2rem; }
+  .logo p { display: none; }
+}

@@ -1,0 +1,107 @@
+/* FollowUpPanel.css */
+
+.followup-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-bright);
+  border-left: 3px solid var(--color-green);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  animation: fadeInUp 0.3s ease;
+}
+
+.followup-panel--answered {
+  opacity: 0.6;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.followup-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.followup-icon { font-size: 1.1rem; }
+
+.followup-header h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-green);
+  letter-spacing: 0.03em;
+}
+
+.question-text {
+  font-size: 0.97rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.quick-answers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.quick-answer-btn {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-bright);
+  color: var(--text-secondary);
+  border-radius: 50px;
+  padding: 7px 16px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quick-answer-btn:hover {
+  border-color: var(--color-green);
+  color: var(--color-green);
+  background: rgba(0, 230, 118, 0.06);
+}
+
+.custom-answer-form {
+  display: flex;
+  gap: 8px;
+}
+
+.custom-answer-input {
+  flex: 1;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  padding: 8px 12px;
+}
+
+.custom-answer-input:focus {
+  outline: none;
+  border-color: var(--color-green);
+}
+
+.custom-answer-submit {
+  background: rgba(0, 230, 118, 0.1);
+  border: 1px solid rgba(0, 230, 118, 0.3);
+  color: var(--color-green);
+  border-radius: var(--radius-md);
+  padding: 8px 16px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.custom-answer-submit:hover:not(:disabled) {
+  background: rgba(0, 230, 118, 0.2);
+}
+
+.custom-answer-submit:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

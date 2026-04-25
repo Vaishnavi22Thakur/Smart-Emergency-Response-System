@@ -1,0 +1,93 @@
+/* SOSButton.css */
+
+.sos-button {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-red);
+  background: var(--color-red-dim);
+  color: var(--color-red);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.sos-button:hover:not(:disabled) {
+  background: var(--color-red);
+  color: white;
+  box-shadow: var(--shadow-glow-red);
+  transform: scale(1.04);
+}
+
+.sos-button--idle {
+  animation: sos-idle 2.5s ease-in-out infinite;
+}
+
+@keyframes sos-idle {
+  0%, 90%, 100% { box-shadow: none; }
+  45% { box-shadow: 0 0 14px rgba(255, 59, 59, 0.4); }
+}
+
+.sos-button--locating,
+.sos-button--sending {
+  opacity: 0.7;
+  cursor: wait;
+  animation: none;
+}
+
+.sos-button--error {
+  border-color: var(--color-amber);
+  color: var(--color-amber);
+  background: var(--color-amber-dim);
+}
+
+/* ── Confirmation UI ────────────────────────────────────────────────────────── */
+.sos-confirmation {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sos-confirmation-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 230, 118, 0.08);
+  border: 1px solid rgba(0, 230, 118, 0.3);
+  border-radius: var(--radius-md);
+  padding: 8px 14px;
+  font-size: 0.82rem;
+  color: var(--color-green);
+  max-width: 300px;
+}
+
+.sos-check {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.sos-confirmation-inner strong {
+  display: block;
+  font-weight: 600;
+}
+
+.sos-confirmation-inner p {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  margin-top: 2px;
+}
+
+.sos-reset-btn {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 2px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.sos-reset-btn:hover { color: var(--text-secondary); }
